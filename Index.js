@@ -56,10 +56,10 @@ app.post('/searchhospital', middleware.checkToken, (req,res) => {
 });
 
 app.post('/addvent',(req,res)=>{
-    const hid=req.query.hid;
-    const ventid=req.query.ventid;
-    const status=req.query.status;
-    const name=req.query.name;
+    const hid=req.body.hid;
+    const ventid=req.body.ventid;
+    const status=req.body.status;
+    const name=req.body.name;
     console.log("adding ventilator, please wait a moment");
     const item={"hid":hid, "ventid":ventid, "status":status, "name":name};
     db.collection("ventilators").insertOne(item, function(err, result){
